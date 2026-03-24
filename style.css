@@ -1,0 +1,70 @@
+:root {
+  --bg: #0b0d10;
+  --text: #d7d1c8;
+  --ghost: rgba(190, 198, 214, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  color: var(--text);
+  font-family: "Times New Roman", Times, serif;
+  overflow: hidden;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7vh 7vw;
+}
+
+.text-wrap {
+  position: relative;
+  width: min(62ch, 76vw);
+  max-width: 760px;
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+  will-change: transform;
+}
+
+.text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.9rem);
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  text-align: left;
+  user-select: none;
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 0.4px rgba(255,255,255,0.04);
+}
+
+.ghost {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  color: var(--ghost);
+  pointer-events: none;
+  transform: translate(0.35px, -0.15px);
+  filter: blur(0.2px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
